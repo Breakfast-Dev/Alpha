@@ -1,0 +1,1 @@
+delfile(_G.Folders.UserBin .. "test.lua")
