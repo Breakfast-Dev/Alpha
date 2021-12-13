@@ -13,5 +13,5 @@ for _, file in pairs(files) do
 	ResponseInTerminal("Get:" .. get_index .." https://raw.githubusercontent.com/Breakfast-Dev/Alpha/main/apm/" .. package_name .. '/files/' .. file)
 end
 for _, file in pairs(files) do
-	writefileCooldown(_G.Folders.UserBin .. name, game:HttpGet(base_repo .. "files/" .. file))
+	writefileCooldown(_G.Folders.UserBin .. file, game:HttpGet(base_repo .. "files/" .. file))
 end
