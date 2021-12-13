@@ -7,12 +7,15 @@ local base_repo = "https://raw.githubusercontent.com/Breakfast-Dev/Alpha/main/ap
 local get_index = 2
 local sources = {}
 local files = {
-	"rejoin.lua", 
 	"reset.lua", 
+	"re.lua", 
+	"rejoin.lua", 
+	"rj.lua"
 }
 for _, file in pairs(files) do
 	table.insert(sources, game:HttpGet(base_repo .. "files/" .. file))
 	ResponseInTerminal("Get:" .. get_index .." https://raw.githubusercontent.com/Breakfast-Dev/Alpha/main/apm/" .. package_name .. '/files/' .. file)
+	get_index = get_index + 1
 end
 for i, file in pairs(files) do
 	writefileCooldown(_G.Folders.UserBin .. file, sources[i])
