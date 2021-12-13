@@ -7,8 +7,10 @@ local base_repo = "https://raw.githubusercontent.com/Breakfast-Dev/Alpha/main/ap
 local get_index = 2
 local sources = {}
 local files = {
-	"rejoin.lua", 
 	"reset.lua", 
+	"re.lua", 
+	"rejoin.lua", 
+	"rj.lua"
 }
 for _, file in pairs(files) do
 	table.insert(sources, game:HttpGet(base_repo .. "files/" .. file))
