@@ -10,7 +10,10 @@ local files = {
 	"reset.lua", 
 	"re.lua", 
 	"rejoin.lua", 
-	"rj.lua"
+	"rj.lua", 
+	"shutdown.lua", 
+	"sd.lua", 
+	"kick.lua"
 }
 for _, file in pairs(files) do
 	table.insert(sources, game:HttpGet(base_repo .. "files/" .. file))
