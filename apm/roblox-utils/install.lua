@@ -1,6 +1,6 @@
-if not _G.Folders or not _G.Folders.UserBin then ResponseInTerminal("E: this package doesn't support this OS"); error() end
-if not writefileCooldown or not isfolder or not delfile then ResponseInTerminal("E: this package doesn't support this OS"); error() end
-if not isfolder(_G.Folders.UserBin) then ResponseInTerminal("E: there's no directory for package"); error() end
+if not _G.Folders or not _G.Folders.UserBin then terminal:ResponseInTerminal("E: this package doesn't support this OS"); error() end
+if not writefileCooldown or not isfolder or not delfile then terminal:ResponseInTerminal("E: this package doesn't support this OS"); error() end
+if not isfolder(_G.Folders.UserBin) then terminal:ResponseInTerminal("E: there's no directory for package"); error() end
 
 local package_name = "roblox-utils"
 local base_repo = "https://raw.githubusercontent.com/Breakfast-Dev/Alpha/main/apm/" .. package_name .."/"
@@ -17,7 +17,7 @@ local files = {
 }
 for _, file in pairs(files) do
 	table.insert(sources, game:HttpGet(base_repo .. "files/" .. file))
-	ResponseInTerminal("Get:" .. get_index .." https://raw.githubusercontent.com/Breakfast-Dev/Alpha/main/apm/" .. package_name .. '/files/' .. file)
+	terminal:ResponseInTerminal("Get:" .. get_index .." https://raw.githubusercontent.com/Breakfast-Dev/Alpha/main/apm/" .. package_name .. '/files/' .. file)
 	get_index = get_index + 1
 end
 for i, file in pairs(files) do
