@@ -3,4 +3,10 @@ if not writefileCooldown or not isfolder or not delfile then terminal:ResponseIn
 if not isfolder(_G.Folders.UserBin) then terminal:ResponseInTerminal("E: there's no directory for package"); error() end
 
 local name = "test.lua"
-delfile(_G.Folders.UserBin .. name)
+local source = [==[
+	print("The 'test' package successfully installed!")
+]==]
+if isfile(_G.Folders.UserBin .. name) and readfile(_G.Folders.UserBin .. name) == sources then
+	delfile(_G.Folders.UserBin .. name)
+end
+return Utils.DecimalToByte(#source)

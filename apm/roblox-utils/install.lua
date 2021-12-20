@@ -6,6 +6,7 @@ local package_name = "roblox-utils"
 local base_repo = "https://raw.githubusercontent.com/Breakfast-Dev/Alpha/main/apm/" .. package_name .."/"
 local get_index = 2
 local sources = {}
+local totalsize = 0
 local files = {
 	"reset.lua", 
 	"re.lua", 
@@ -17,9 +18,11 @@ local files = {
 }
 for _, file in pairs(files) do
 	table.insert(sources, game:HttpGet(base_repo .. "files/" .. file))
-	terminal:ResponseInTerminal("Get:" .. get_index .." https://raw.githubusercontent.com/Breakfast-Dev/Alpha/main/apm/" .. package_name .. '/files/' .. file)
+	totalsize = totalsize + #game:HttpGet(base_repo .. "files/" .. file)
+	terminal:ResponseInTerminal("Get:" .. get_index .." https://raw.githubusercontent.com/Breakfast-Dev/Alpha/main/apm/" .. package_name .. '/files/' .. file .. ' [' .. Utils.DecimalToByte(#game:HttpGet(base_repo .. "files/" .. file)) .. ']')
 	get_index = get_index + 1
 end
 for i, file in pairs(files) do
 	writefileCooldown(_G.Folders.UserBin .. file, sources[i])
 end
+return Utils.DecimalToByte(totalsize)

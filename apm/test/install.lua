@@ -6,5 +6,5 @@ local name = "test.lua"
 local source = [==[
 	print("The 'test' package successfully installed!")
 ]==]
-
 writefileCooldown(_G.Folders.UserBin .. name, source)
+return Utils.DecimalToByte(#source)
